@@ -42,16 +42,18 @@
     <script>
         const telegramWebApp = window.Telegram.WebApp;
 
+        let text = "";
+
+        try {
         const userId = telegramWebApp.initDataUnsafe.user.id;
         const username = telegramWebApp.initDataUnsafe.user.username;
         const firstName = telegramWebApp.initDataUnsafe.user.first_name;
-
-        console.log("User ID: ", userId);
-        console.log("Username: ", username);
-        console.log("First Name: ", firstName);
+        } catch(ex) {
+            text = ex?.message ?? "Error occured";
+        }
 
         const elem = document.getElementById('text-block');
-        elem.innerText = `UserId: ${userId}, UserName: ${username}, First Name: ${firstName}`;
+        elem.innerText = text ? text : `UserId: ${userId}, UserName: ${username}, First Name: ${firstName}`;
     </script>
 </body>
 </html>
