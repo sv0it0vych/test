@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>[TITLE]</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
      <style>
         body {
@@ -35,6 +36,22 @@
                 Welcome to ...
             </p>
         </div>
+        <div id="text-block"></div>
     </div>
+
+    <script>
+        const telegramWebApp = window.Telegram.WebApp;
+
+        const userId = telegramWebApp.initDataUnsafe.user.id;
+        const username = telegramWebApp.initDataUnsafe.user.username;
+        const firstName = telegramWebApp.initDataUnsafe.user.first_name;
+
+        console.log("User ID: ", userId);
+        console.log("Username: ", username);
+        console.log("First Name: ", firstName);
+
+        const elem = document.getElementById('text-block');
+        elem.innerHTML = `UserId: ${userId}, UserName: ${username}, First Name: ${firstName}`;
+    </script>
 </body>
 </html>
