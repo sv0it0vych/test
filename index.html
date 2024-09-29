@@ -48,12 +48,13 @@
         const userId = telegramWebApp.initDataUnsafe.user.id;
         const username = telegramWebApp.initDataUnsafe.user.username;
         const firstName = telegramWebApp.initDataUnsafe.user.first_name;
+        text =  `UserId: ${userId}, UserName: ${username}, First Name: ${firstName}`;
         } catch(ex) {
             text = ex?.message ?? "Error occured";
         }
 
         const elem = document.getElementById('text-block');
-        elem.innerText = text ? text : `UserId: ${userId}, UserName: ${username}, First Name: ${firstName}`;
+        elem.innerText = text;
     </script>
 </body>
 </html>
